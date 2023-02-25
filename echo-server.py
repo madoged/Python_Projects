@@ -1,15 +1,26 @@
 # echo-server.py
 
+"""
+Homework:
+main() - check
+argparse - check
+
+I lost and forgot how we formatted the mac address
+I kind of cheated but I learned how to split a string into a list and rejoin it, so there is that.
+
+Extra credit - read port number on server side from file and write mac on client side to a file
+"""
+
 import socket
-import uuid
 import codecs
 import get_mac
 
-
-# Next step is to pass the IP address of the host and listening port number
+file = open("text.txt", "r")
+s = file.read()
+PORT = int(s)
+file.close()
 
 HOST = ""
-PORT = 65432
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
