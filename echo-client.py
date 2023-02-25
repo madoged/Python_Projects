@@ -6,15 +6,14 @@ import argparse
 
 #Next step is to pass the host listening IP and port
 
-HOST = ""
-PORT = 65432
-
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="Reach out to server")
 parser.add_argument("Host")
 args = parser.parse_args()
 
-target = Path(args.HOST)
+HOST = args.Host
+PORT = 65432
 
+print(f"This is the value contained in Host {HOST}")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST,PORT))
